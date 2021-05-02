@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "next": "latest",
+    "passport": "^0.4.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "swr": "^0.5.5"
