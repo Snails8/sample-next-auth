@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TypeScript Next.js example
 
 This is a really simple project that shows the usage of Next.js with TypeScript.
@@ -40,7 +39,7 @@ When we run `next dev` the next time, Next.js will start looking for any `.ts` o
 Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
 
 A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
-=======
+
 # sample-next-auth
 ```
 $ create-next-app --example with-typescript
@@ -49,4 +48,13 @@ $ create-next-app --example with-typescript
 $ cp -R ./my-app /.
 $rm -r my-app
 ```
->>>>>>> f1e4ab053ca00d8d8e323bdbe65c07291e92478f
+
+install swr
+```test-next-app
+$ bootstrap-react
+$ yarn add swr 
+$ yarn add passport
+$ yarn add isomorphic-unfetch
+$ y
+```
+
