@@ -10,6 +10,7 @@ function AppInit() {
 
     // Middleware
     useEffect(() => {
+        // 非同期関数：暗黙のPromiseを返す
         (async function () {
             try {
                 const user = await loginUser.fetchLoginUser();
