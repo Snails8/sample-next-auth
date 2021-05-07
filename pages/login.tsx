@@ -1,9 +1,11 @@
 import Layout from "../components/Layout";
 import Form from "../components/form";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {useSetRecoilState} from "recoil";
 import {Router} from "next/router";
 import fetch from 'isomorphic-unfetch';
+import { loginUserState } from "../states/loginUser";
+import * as loginUser from "../lib/loginUser"
 
 const Login = () => {
     const setLoginUser = useSetRecoilState(loginUserState)
