@@ -1,15 +1,15 @@
+import {useState} from "react";
 import Layout from "../components/Layout";
 import Form from "../components/form";
-import {useState, useEffect} from "react";
-import {useSetRecoilState} from "recoil";
-import {Router} from "next/router";
+import Router from "next/router";
 import fetch from 'isomorphic-unfetch';
-import { loginUserState } from "../states/loginUser";
 import * as loginUser from "../lib/loginUser"
+import {useSetRecoilState} from "recoil";
+import {loginUserState} from "../states/loginUser";
 
 const Login = () => {
     const setLoginUser = useSetRecoilState(loginUserState)
-    const [errorMsg, handleSubmit] = useState('')
+    const [errorMsg, setErrorMsg] = useState('')
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -25,12 +25,13 @@ const Login = () => {
             const res = await fetch('/api/admin/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify(boby),
+                body: JSON.stringify(body),
                 credentials: 'include',
             })
 
             if (res.status === 200) {
 
+                // リダイレクト前に認証情報をセットしないとチェックができないため
                 try {
                     const user = await loginUser.fetchLoginUser();
                     setLoginUser(user);
@@ -51,7 +52,7 @@ const Login = () => {
     return (
         <Layout>
             <div className="login">
-                <Form islogin errorMessage={errorMsg} onSubmit={handleSubmit} />
+                <Form isLogin errorMessage={errorMsg} onSubmit={handleSubmit} />
             </div>
             <style jsx>{`
         .login {
