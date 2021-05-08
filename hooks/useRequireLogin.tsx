@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Router from 'next/router';
 import { useLoginUser } from "./useLoginUser"
 
+// リダイレクト　最初の判定に係る
 export function useRequireLogin() {
     const { loginUser, isAuthChecking } = useLoginUser();
 

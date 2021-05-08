@@ -22,6 +22,7 @@ const Login = () => {
         }
 
         try {
+            // 認証情報付きのリクエストを送る&JSON加工
             const res = await fetch('/api/admin/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json'},
