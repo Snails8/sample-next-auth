@@ -2,19 +2,20 @@ import Layout from '../components/Layout'
 import {useRequireLogin} from "../hooks/useRequireLogin";
 import { useLoginUser} from "../hooks/useLoginUser";
 
-const IndexPage = () => (
-  useRequireLogin();
-  
-  const { loginUser, isAuthChecking } = useLoginUser()
+const Home = () => {
+    useRequireLogin();
 
-if(isAuthChecking) return (<div>ログイン情報を確認中…</div>);
-if(!loginUser)     return (<div>ログインしていません</div>);
+    const { loginUser, isAuthChecking } = useLoginUser()
 
-return (
-    <Layout>
-        <h1>認証サンプル</h1>
-        <div>あなたのユーザー名は{loginUser.name}です</div>
-    </Layout>
-)
+    if(isAuthChecking) return (<div>ログイン情報を確認中…</div>);
+    if(!loginUser)     return (<div>ログインしていません</div>);
 
-export default IndexPage
+    return (
+        <Layout>
+            <h1>認証サンプル</h1>
+            <div>あなたのユーザー名は{loginUser.name}です</div>
+        </Layout>
+    )
+}
+
+export default Home
